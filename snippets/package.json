@@ -1,0 +1,27 @@
+{
+  "name": "diego-snippets",
+  "author": "Diego Jaeger Rapoport",
+  "engines": {
+    "vscode": "^1.11.0"
+  },
+  "contributes": {
+    "snippets": [
+      {
+        "language": "python",
+        "path": "./python.json"
+      },
+      {
+        "language": "all",
+        "path": "./all.json"
+      },
+      {
+        "language": "lua",
+        "path": "./lua.json"
+      },
+      {
+        "language": "ain",
+        "path": "./ain.json"
+      }
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "Basic GET": {
+    "prefix": "aing",
+    "body": [
+      "[Host]",
+      "$1",
+      "[Method]",
+      "GET",
+      "[Backend]",
+      "curl",
+      "[BackendOptions]",
+      "-sS"
+    ]
+  },
+  "Basic POST": {
+    "prefix": "ainp",
+    "body": [
+      "[Host]",
+      "$1",
+      "[Headers]",
+      "Content-Type: application/json",
+      "[Body]",
+      "$3",
+      "[Method]",
+      "POST",
+      "[Backend]",
+      "curl",
+      "[BackendOptions]",
+      "-sS"
+    ]
+  }
+}

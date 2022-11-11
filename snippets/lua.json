@@ -1,0 +1,11 @@
+{
+  "Import safe": {
+    "prefix": "spcal",
+    "body": [
+      "local status_ok, $1 = pcall(require, \"$1\")",
+      "if not status_ok then",
+      " return",
+      "end"
+    ]
+  }
+}
