@@ -86,7 +86,6 @@ packer.startup(function(use)
       {'nvim-lua/plenary.nvim'},
       {'nvim-telescope/telescope-github.nvim'},
       {'nvim-telescope/telescope-project.nvim'},
-
     }
   }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
@@ -102,6 +101,14 @@ packer.startup(function(use)
   }
   use 'p00f/nvim-ts-rainbow'
   use 'RRethy/nvim-treesitter-endwise'
+
+  -- Projects
+  use {
+    'ahmedkhalf/project.nvim',
+    config = function()
+      require("project_nvim").setup {}
+    end
+  }
 
   -- GIT
   use 'lewis6991/gitsigns.nvim'

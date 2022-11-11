@@ -75,21 +75,28 @@ wk.register({
 }, nopts)
 
 wk.register({
+  p = {
+    name = "Projetos",
+    r = {'<cmd>lua require"telescope".extensions.projects.projects{}<cr>', "Abre projetos recentes"},
+  }
+}, nopts)
+
+wk.register({
     s = {
         name = 'search',
-        F = {':Telescope filetypes<cr>', 'filetypes'},
-        d = {':Telescope lsp_document_diagnostics<cr>', 'document_diagnostics'},
-        D = {':Telescope lsp_workspace_diagnostics<cr>', 'workspace_diagnostics'},
-        f = {':Telescope find_files<cr>', 'files'},
-        h = {':Telescope command_history<cr>', 'history'},
-        i = {':Telescope media_files<cr>', 'media files'},
-        m = {':Telescope marks<cr>', 'marks'},
-        M = {':Telescope man_pages<cr>', 'man_pages'},
-        o = {':Telescope vim_options<cr>', 'vim_options'},
-        t = {':Telescope live_grep<cr>', 'text'},
-        r = {':Telescope registers<cr>', 'registers'},
-        w = {':Telescope file_browser<cr>', 'buf_fuz_find'},
-        u = {':Telescope colorscheme<cr>', 'colorschemes'},
+        F = {'<cmd>Telescope filetypes<cr>', 'Tipos de arquivos'},
+        d = {'<cmd>Telescope lsp_document_diagnostics<cr>', 'Diagnósticos de documento'},
+        D = {'<cmd>Telescope lsp_workspace_diagnostics<cr>', 'Diagnósticos de ambiente de espaço'},
+        f = {'<cmd>Telescope find_files<cr>', 'Achar arquivos'},
+        h = {'<cmd>Telescope command_history<cr>', 'Histórico'},
+        i = {'<cmd>Telescope media_files<cr>', 'Arquivos de mídia'},
+        m = {'<cmd>Telescope marks<cr>', 'Marcas'},
+        M = {'<cmd>Telescope man_pages<cr>', 'Arquivos man'},
+        o = {'<cmd>Telescope vim_options<cr>', 'Opções do vim'},
+        t = {'<cmd>Telescope live_grep<cr>', 'Grep ao vivo'},
+        r = {'<cmd>Telescope registers<cr>', 'Registros'},
+        w = {'<cmd>Telescope file_browser<cr>', 'Encontrar arquivo'},
+        u = {'<cmd>Telescope colorscheme<cr>', 'Cores de sistema'},
     },
 }, nopts)
 

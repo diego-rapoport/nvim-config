@@ -1,6 +1,6 @@
 local status_ok, toggleterm = pcall(require, "toggleterm")
 if not status_ok then
-  print('Não ok toggle!')
+  vim.notify('Não ok toggle!')
  return
 end
 
