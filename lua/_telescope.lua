@@ -6,6 +6,11 @@ end
 
 telescope.load_extension('gh')
 telescope.load_extension('projects')
+telescope.load_extension('neoclip')
+telescope.load_extension('env')
+-- telescope.load_extension('luasnip')
+
+require('lsp-toggle').setup()
 
 telescope.setup {
   extensions = {

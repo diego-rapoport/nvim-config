@@ -1,6 +1,4 @@
 local fn = vim.fn
-local augroup = vim.api.nvim_create_augroup
-local autocmd = vim.api.nvim_create_autocmd
 local notify = vim.notify
 
 -- Instala packer automagicamente
@@ -17,9 +15,6 @@ if fn.empty(fn.glob(install_path)) > 0 then
   print "Instalando packer, feche e reabra o neovim..."
   vim.cmd [[packadd packer.nvim]]
 end
-
-local grupo_packer_didi_config = augroup("PackerDidiConfig", { clear = true })
-autocmd("BufWritePost", { command = "source % | PackerSync", pattern = "plugins.lua", group = grupo_packer_didi_config })
 
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
@@ -90,6 +85,13 @@ packer.startup(function(use)
   }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use 'nvim-telescope/telescope-symbols.nvim'
+  use 'LinArcx/telescope-env.nvim'
+  use 'keyvchan/telescope-find-pickers.nvim'
+  use 'adoyle-h/lsp-toggle.nvim'
+  use {
+    'benfowler/telescope-luasnip.nvim',
+    module = 'telescope.extensions.luasnip',
+  }
 
   -- Treesitter
   use {
@@ -101,6 +103,24 @@ packer.startup(function(use)
   }
   use 'p00f/nvim-ts-rainbow'
   use 'RRethy/nvim-treesitter-endwise'
+  use {
+    'AckslD/nvim-neoclip.lua',
+    requires = {
+    {'kkharji/sqlite.lua', module = 'sqlite'},
+    },
+    config = function ()
+      require('neoclip').setup()
+    end
+  }
+
+  -- Dashboard incial
+  use {
+      "startup-nvim/startup.nvim",
+      requires = {"nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim"},
+      config = function()
+        require"startup".setup("startup.lua")
+      end
+  }
 
   -- Projects
   use {
@@ -110,15 +130,76 @@ packer.startup(function(use)
     end
   }
 
+  -- Notificações
+  use 'rcarriga/nvim-notify'
+
   -- GIT
   use 'lewis6991/gitsigns.nvim'
   use 'kdheepak/lazygit.nvim'
 
+  -- Modo Zen
+  use {
+    'folke/zen-mode.nvim',
+    config = function ()
+      require('zen')
+    end
+  }
+
   -- NEORG
   use {
     'nvim-neorg/neorg',
-    config = function() require('neorg') end,
+    config = function()
+      require('neorg').setup{
+  load = {
+    ["core.defaults"] = {},
+    ["core.integrations.telescope"] = {},
+    ["core.norg.concealer"] = {},
+    ["core.export.markdown"] = {},
+    ["core.presenter"] = {
+            config = {
+              zen_mode = 'zen-mode'
+            }
+          },
+    ["core.export"] = {
+      config = {
+        extensions = "all"
+      }
+    },
+    ["core.gtd.base"] = {
+            config = {
+              workspace = "tasks",
+            }
+          },
+    ["core.norg.dirman"] = {
+      config = {
+        workspaces = {
+          norgs = "~/Documentos/Norgs",
+          tasks = "~/Documentos/Norgs/Tasks"
+        },
+        autochdir = true,
+        index = "index.norg",
+        defaut_workspace = "~/Documentos/Norgs"
+      },
+    },
+    ["core.norg.completion"] = {
+      config = {
+        engine = "nvim-cmp",
+      },
+    },
+    ["core.keybinds"] = {
+      config = {
+        default_keybindins = true,
+        neorg_leader = "<leader>o",
+      },
+    },
+  },
+
+      }
+    end,
+    ft = 'norg',
     after = 'nvim-treesitter',
+    run = ':Neorg sync-parsers',
+    requires = 'nvim-neorg/neorg-telescope'
   }
 
   -- Whichkey

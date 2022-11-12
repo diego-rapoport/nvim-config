@@ -23,6 +23,12 @@ local vopts = {
 
 -- Registros básicos
 wk.register({
+  ['/'] = {"<Plug>(comment_toggle_linewise_current)", "Comentar código"},
+}, nopts)
+wk.register({
+  ['/'] = {"<Plug>(comment_toggle_blockwise_visual)", "Comentar código"},
+}, vopts)
+wk.register({
   h = {"<cmd>nohls<cr>", "Desliga seleção"},
 }, nopts)
 wk.register({
@@ -32,45 +38,51 @@ wk.register({
   r = {"<cmd>RnvimrToggle<cr>", "Abre ranger"},
 }, nopts)
 wk.register({
-  c = {"<cmd>Bdelete!<cr>", "Fecha o buffer"}
+  c = {"<cmd>Bdelete!<cr>", "Fecha o buffer"},
 }, nopts)
 
-
 -- Registros aninhados
+wk.register({
+  C = {
+    name = "Configs",
+    t = {"<cmd>e ~/.config/nvim/lua/_telescope.lua"},
+  }
+}, nopts)
+
 wk.register({
   g = {
     name = "Lazygit",
     g = {"<cmd>LazyGitCurrentFile<cr>", "Abre lazygit no arquivo atual"},
-    c = {"<cmd>LazyGiConfig<cr>", "Abre configs do lazygit"}
-  }
-})
+    c = {"<cmd>LazyGiConfig<cr>", "Abre configs do lazygit"},
+  },
+}, nopts)
 
 wk.register({
   l = {
     name = "LSP",
-    a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-    d = { "<cmd>Telescope diagnostics bufnr=0 theme=get_ivy<cr>", "Buffer Diagnostics" },
-    w = { "<cmd>Telescope diagnostics<cr>", "Diagnostics" },
-    --f = { "<cmd>vim.lsp.utils").format, "Format" },
-    i = { "<cmd>LspInfo<cr>", "Info" },
-    I = { "<cmd>Mason<cr>", "Mason Info" },
+    a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Ação de código" },
+    d = { "<cmd>Telescope diagnostics bufnr=0 theme=get_ivy<cr>", "Diagnósticos de Buffer" },
+    w = { "<cmd>Telescope diagnostics<cr>", "Diagnósticos" },
+    f = { "<cmd>vim.lsp.buf.formatting_sync()<cr>", "Formatar" },
+    i = { "<cmd>LspInfo<cr>", "Informações" },
+    I = { "<cmd>Mason<cr>", "Mason" },
     j = {
       vim.diagnostic.goto_next,
-      "Next Diagnostic",
+      "Próximo Diagnóstico",
     },
     k = {
       vim.diagnostic.goto_prev,
-      "Prev Diagnostic",
+      "Diagnóstico Anterior",
     },
-    l = { vim.lsp.codelens.run, "CodeLens Action" },
-    q = { vim.diagnostic.setloclist, "Quickfix" },
-    r = { vim.lsp.buf.rename, "Rename" },
-    s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
+    l = { vim.lsp.codelens.run, "Ação Code Lens" },
+    q = { vim.diagnostic.setloclist, "Conserto rápido" },
+    r = { vim.lsp.buf.rename, "Renomear" },
+    s = { "<cmd>Telescope lsp_document_symbols<cr>", "Símbolos de Documento" },
     S = {
       "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
-      "Workspace Symbols",
+      "Símbolos do Ambiente de Espaço",
     },
-    e = { "<cmd>Telescope quickfix<cr>", "Telescope Quickfix" },
+    e = { "<cmd>Telescope quickfix<cr>", "Conserto Rápido do Telescope" },
   },
 }, nopts)
 
@@ -78,6 +90,7 @@ wk.register({
   p = {
     name = "Projetos",
     r = {'<cmd>lua require"telescope".extensions.projects.projects{}<cr>', "Abre projetos recentes"},
+    s = {'<cmd>Telescope symbols', "Busca de emojis"},
   }
 }, nopts)
 

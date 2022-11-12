@@ -16,10 +16,10 @@ local t = "t"
 keymap(n, "siw", "viwp", opts) -- substitui do clipboard na palavra que está em cima
 
 -- Navegação de janelas --
-keymap(n, "<C-h>", "<C-w>h", opts)
-keymap(n, "<C-j>", "<C-w>j", opts)
-keymap(n, "<C-k>", "<C-w>k", opts)
-keymap(n, "<C-l>", "<C-w>l", opts)
+keymap(n, "<C-h>", "<C-w><C-h>", opts)
+keymap(n, "<C-j>", "<C-w><C-j>", opts)
+keymap(n, "<C-k>", "<C-w><C-k>", opts)
+keymap(n, "<C-l>", "<C-w><C-l>", opts)
 
 -- Navegação de buffers --
 keymap(n, "<S-l>", ":bnext<cr>", opts)
@@ -33,7 +33,7 @@ keymap(n, "<M-h>", ":vertical resize -2<cr>", opts)
 
 -- Salvar & Sair --
 keymap(n, "<C-s>", ":w<cr>", opts)      -- salva o arquivo atual
-keymap(n, "<M-a>", ":wa<cr>", opts)     -- salva todos os arquivos do buffer
+keymap(n, "<M-s>", ":wa<cr>", opts)     -- salva todos os arquivos do buffer
 keymap(n, "<M-q>", ":wqa<cr>", opts)    -- salva todos os arquivos do buffer e sai
 -- keymap(n, "<leader>q", ":qa<cr>", opts) -- sair de neovim completamente
 
@@ -46,7 +46,9 @@ keymap(n, 'gw', ':lua vim.lsp.buf.workspace_symbol()<cr>', opts)
 keymap(n, 'gr', ':lua vim.lsp.buf.references()<cr>', opts)
 keymap(n, 'gt', ':lua vim.lsp.buf.type_definition()<cr>', opts)
 keymap(n, 'K', ':lua vim.lsp.buf.hover()<cr>', opts)
-keymap(n, '<C-k>', ':lua vim.lsp.buf.signature_help()<cr>', opts)
+
+-- Telescope --
+keymap(n, "<leader><leader>", ":lua require('telescope').extensions.find_pickers.find_pickers()<cr>", opts)
 
 -- Terminais --
 keymap(n, "<F2>", ":1ToggleTerm direction=horizontal<cr>", opts)

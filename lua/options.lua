@@ -32,6 +32,7 @@ local options = {
   scrolloff = 10, -- mantém o cursos mais no centro possível
   sidescrolloff = 10,
   termguicolors = true,
+  laststatus = 3, -- Deixa só uma linha de status
 }
 
 vim.cmd [[au TextYankPost * silent! lua vim.highlight.on_yank()]] -- Pisca quando copia texto
