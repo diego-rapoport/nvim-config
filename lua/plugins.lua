@@ -78,10 +78,10 @@ packer.startup(function(use)
   use {
     'nvim-telescope/telescope.nvim',
     requires = {
-      {'nvim-lua/plenary.nvim'},
-      {'nvim-telescope/telescope-github.nvim'},
-      {'nvim-telescope/telescope-project.nvim'},
-    }
+      { 'nvim-lua/plenary.nvim' },
+      { 'nvim-telescope/telescope-github.nvim' },
+      { 'nvim-telescope/telescope-project.nvim' },
+    },
   }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use 'nvim-telescope/telescope-symbols.nvim'
@@ -92,6 +92,7 @@ packer.startup(function(use)
     'benfowler/telescope-luasnip.nvim',
     module = 'telescope.extensions.luasnip',
   }
+  use 'octarect/telescope-menu.nvim'
 
   -- Treesitter
   use {
@@ -106,20 +107,20 @@ packer.startup(function(use)
   use {
     'AckslD/nvim-neoclip.lua',
     requires = {
-    {'kkharji/sqlite.lua', module = 'sqlite'},
+      { 'kkharji/sqlite.lua', module = 'sqlite' },
     },
-    config = function ()
+    config = function()
       require('neoclip').setup()
     end
   }
 
   -- Dashboard incial
   use {
-      "startup-nvim/startup.nvim",
-      requires = {"nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim"},
-      config = function()
-        require"startup".setup("startup.lua")
-      end
+    "startup-nvim/startup.nvim",
+    requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+    config = function()
+      require "startup".setup("startup.lua")
+    end
   }
 
   -- Projects
@@ -140,7 +141,7 @@ packer.startup(function(use)
   -- Modo Zen
   use {
     'folke/zen-mode.nvim',
-    config = function ()
+    config = function()
       require('zen')
     end
   }
@@ -149,54 +150,53 @@ packer.startup(function(use)
   use {
     'nvim-neorg/neorg',
     config = function()
-      require('neorg').setup{
-  load = {
-    ["core.defaults"] = {},
-    ["core.integrations.telescope"] = {},
-    ["core.norg.concealer"] = {},
-    ["core.export.markdown"] = {},
-    ["core.presenter"] = {
+      require('neorg').setup {
+        load = {
+          ["core.defaults"] = {},
+          ["core.integrations.telescope"] = {},
+          ["core.norg.concealer"] = {},
+          ["core.export.markdown"] = {},
+          ["core.presenter"] = {
             config = {
               zen_mode = 'zen-mode'
             }
           },
-    ["core.export"] = {
-      config = {
-        extensions = "all"
-      }
-    },
-    ["core.gtd.base"] = {
+          ["core.export"] = {
+            config = {
+              extensions = "all"
+            }
+          },
+          ["core.gtd.base"] = {
             config = {
               workspace = "tasks",
             }
           },
-    ["core.norg.dirman"] = {
-      config = {
-        workspaces = {
-          norgs = "~/Documentos/Norgs",
-          tasks = "~/Documentos/Norgs/Tasks"
+          ["core.norg.dirman"] = {
+            config = {
+              workspaces = {
+                norgs = "~/Documentos/Norgs",
+                tasks = "~/Documentos/Norgs/Tasks"
+              },
+              autochdir = true,
+              index = "index.norg",
+              defaut_workspace = "~/Documentos/Norgs"
+            },
+          },
+          ["core.norg.completion"] = {
+            config = {
+              engine = "nvim-cmp",
+            },
+          },
+          ["core.keybinds"] = {
+            config = {
+              default_keybindins = true,
+              neorg_leader = "<leader>o",
+            },
+          },
         },
-        autochdir = true,
-        index = "index.norg",
-        defaut_workspace = "~/Documentos/Norgs"
-      },
-    },
-    ["core.norg.completion"] = {
-      config = {
-        engine = "nvim-cmp",
-      },
-    },
-    ["core.keybinds"] = {
-      config = {
-        default_keybindins = true,
-        neorg_leader = "<leader>o",
-      },
-    },
-  },
-
       }
     end,
-    ft = 'norg',
+    -- ft = 'norg',
     after = 'nvim-treesitter',
     run = ':Neorg sync-parsers',
     requires = 'nvim-neorg/neorg-telescope'
@@ -240,7 +240,7 @@ packer.startup(function(use)
   -- Comments
   use {
     'numToStr/Comment.nvim',
-    config = function ()
+    config = function()
       require("Comment").setup()
     end
   }

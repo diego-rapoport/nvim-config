@@ -217,11 +217,10 @@ _G.packer_plugins = {
     url = "https://github.com/phaazon/mind.nvim"
   },
   neorg = {
-    config = { "\27LJ\2\nü\5\0\0\a\0\31\0+6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\29\0005\3\3\0004\4\0\0=\4\4\0034\4\0\0=\4\5\0034\4\0\0=\4\6\0034\4\0\0=\4\a\0035\4\t\0005\5\b\0=\5\n\4=\4\v\0035\4\r\0005\5\f\0=\5\n\4=\4\14\0035\4\16\0005\5\15\0=\5\n\4=\4\17\0035\4\21\0005\5\19\0005\6\18\0=\6\20\5=\5\n\4=\4\22\0035\4\24\0005\5\23\0=\5\n\4=\4\25\0035\4\27\0005\5\26\0=\5\n\4=\4\28\3=\3\30\2B\0\2\1K\0\1\0\tload\1\0\0\18core.keybinds\1\0\0\1\0\2\17neorg_leader\14<leader>o\23default_keybindins\2\25core.norg.completion\1\0\0\1\0\1\vengine\rnvim-cmp\21core.norg.dirman\1\0\0\15workspaces\1\0\3\nindex\15index.norg\14autochdir\2\21defaut_workspace\23~/Documentos/Norgs\1\0\2\ntasks\29~/Documentos/Norgs/Tasks\nnorgs\23~/Documentos/Norgs\18core.gtd.base\1\0\0\1\0\1\14workspace\ntasks\16core.export\1\0\0\1\0\1\15extensions\ball\19core.presenter\vconfig\1\0\0\1\0\1\rzen_mode\rzen-mode\25core.export.markdown\24core.norg.concealer core.integrations.telescope\18core.defaults\1\0\0\nsetup\nneorg\frequire\0" },
+    config = { "\27LJ\2\nü\5\0\0\a\0\31\0+6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\29\0005\3\3\0004\4\0\0=\4\4\0034\4\0\0=\4\5\0034\4\0\0=\4\6\0034\4\0\0=\4\a\0035\4\t\0005\5\b\0=\5\n\4=\4\v\0035\4\r\0005\5\f\0=\5\n\4=\4\14\0035\4\16\0005\5\15\0=\5\n\4=\4\17\0035\4\21\0005\5\19\0005\6\18\0=\6\20\5=\5\n\4=\4\22\0035\4\24\0005\5\23\0=\5\n\4=\4\25\0035\4\27\0005\5\26\0=\5\n\4=\4\28\3=\3\30\2B\0\2\1K\0\1\0\tload\1\0\0\18core.keybinds\1\0\0\1\0\2\23default_keybindins\2\17neorg_leader\14<leader>o\25core.norg.completion\1\0\0\1\0\1\vengine\rnvim-cmp\21core.norg.dirman\1\0\0\15workspaces\1\0\3\nindex\15index.norg\21defaut_workspace\23~/Documentos/Norgs\14autochdir\2\1\0\2\ntasks\29~/Documentos/Norgs/Tasks\nnorgs\23~/Documentos/Norgs\18core.gtd.base\1\0\0\1\0\1\14workspace\ntasks\16core.export\1\0\0\1\0\1\15extensions\ball\19core.presenter\vconfig\1\0\0\1\0\1\rzen_mode\rzen-mode\25core.export.markdown\24core.norg.concealer core.integrations.telescope\18core.defaults\1\0\0\nsetup\nneorg\frequire\0" },
     load_after = {},
-    loaded = false,
+    loaded = true,
     needs_bufread = true,
-    only_cond = false,
     path = "/home/dinhego/.local/share/nvim/site/pack/packer/opt/neorg",
     url = "https://github.com/nvim-neorg/neorg"
   },
@@ -372,6 +371,11 @@ _G.packer_plugins = {
     path = "/home/dinhego/.local/share/nvim/site/pack/packer/opt/telescope-luasnip.nvim",
     url = "https://github.com/benfowler/telescope-luasnip.nvim"
   },
+  ["telescope-menu.nvim"] = {
+    loaded = true,
+    path = "/home/dinhego/.local/share/nvim/site/pack/packer/start/telescope-menu.nvim",
+    url = "https://github.com/octarect/telescope-menu.nvim"
+  },
   ["telescope-project.nvim"] = {
     loaded = true,
     path = "/home/dinhego/.local/share/nvim/site/pack/packer/start/telescope-project.nvim",
@@ -447,14 +451,22 @@ if not vim.g.packer_custom_loader_enabled then
   vim.g.packer_custom_loader_enabled = true
 end
 
--- Config for: toggleterm.nvim
-time([[Config for toggleterm.nvim]], true)
-try_loadstring("\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15toggleterm\frequire\0", "config", "toggleterm.nvim")
-time([[Config for toggleterm.nvim]], false)
+-- Config for: mind.nvim
+time([[Config for mind.nvim]], true)
+try_loadstring("\27LJ\2\n2\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\tmind\frequire\0", "config", "mind.nvim")
+time([[Config for mind.nvim]], false)
+-- Config for: Comment.nvim
+time([[Config for Comment.nvim]], true)
+try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fComment\frequire\0", "config", "Comment.nvim")
+time([[Config for Comment.nvim]], false)
 -- Config for: nvim-neoclip.lua
 time([[Config for nvim-neoclip.lua]], true)
 try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fneoclip\frequire\0", "config", "nvim-neoclip.lua")
 time([[Config for nvim-neoclip.lua]], false)
+-- Config for: which-key.nvim
+time([[Config for which-key.nvim]], true)
+try_loadstring("\27LJ\2\n(\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\rwhichkey\frequire\0", "config", "which-key.nvim")
+time([[Config for which-key.nvim]], false)
 -- Config for: zen-mode.nvim
 time([[Config for zen-mode.nvim]], true)
 try_loadstring("\27LJ\2\n#\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\bzen\frequire\0", "config", "zen-mode.nvim")
@@ -463,18 +475,10 @@ time([[Config for zen-mode.nvim]], false)
 time([[Config for project.nvim]], true)
 try_loadstring("\27LJ\2\n>\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\17project_nvim\frequire\0", "config", "project.nvim")
 time([[Config for project.nvim]], false)
--- Config for: Comment.nvim
-time([[Config for Comment.nvim]], true)
-try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fComment\frequire\0", "config", "Comment.nvim")
-time([[Config for Comment.nvim]], false)
--- Config for: mind.nvim
-time([[Config for mind.nvim]], true)
-try_loadstring("\27LJ\2\n2\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\tmind\frequire\0", "config", "mind.nvim")
-time([[Config for mind.nvim]], false)
--- Config for: which-key.nvim
-time([[Config for which-key.nvim]], true)
-try_loadstring("\27LJ\2\n(\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\rwhichkey\frequire\0", "config", "which-key.nvim")
-time([[Config for which-key.nvim]], false)
+-- Config for: toggleterm.nvim
+time([[Config for toggleterm.nvim]], true)
+try_loadstring("\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15toggleterm\frequire\0", "config", "toggleterm.nvim")
+time([[Config for toggleterm.nvim]], false)
 -- Config for: startup.nvim
 time([[Config for startup.nvim]], true)
 try_loadstring("\27LJ\2\nE\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\1K\0\1\0\16startup.lua\nsetup\fstartup\frequire\0", "config", "startup.nvim")
@@ -482,19 +486,12 @@ time([[Config for startup.nvim]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
 vim.cmd [[ packadd nvim-treesitter ]]
+vim.cmd [[ packadd neorg ]]
+
+-- Config for: neorg
+try_loadstring("\27LJ\2\nü\5\0\0\a\0\31\0+6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\29\0005\3\3\0004\4\0\0=\4\4\0034\4\0\0=\4\5\0034\4\0\0=\4\6\0034\4\0\0=\4\a\0035\4\t\0005\5\b\0=\5\n\4=\4\v\0035\4\r\0005\5\f\0=\5\n\4=\4\14\0035\4\16\0005\5\15\0=\5\n\4=\4\17\0035\4\21\0005\5\19\0005\6\18\0=\6\20\5=\5\n\4=\4\22\0035\4\24\0005\5\23\0=\5\n\4=\4\25\0035\4\27\0005\5\26\0=\5\n\4=\4\28\3=\3\30\2B\0\2\1K\0\1\0\tload\1\0\0\18core.keybinds\1\0\0\1\0\2\23default_keybindins\2\17neorg_leader\14<leader>o\25core.norg.completion\1\0\0\1\0\1\vengine\rnvim-cmp\21core.norg.dirman\1\0\0\15workspaces\1\0\3\nindex\15index.norg\21defaut_workspace\23~/Documentos/Norgs\14autochdir\2\1\0\2\ntasks\29~/Documentos/Norgs/Tasks\nnorgs\23~/Documentos/Norgs\18core.gtd.base\1\0\0\1\0\1\14workspace\ntasks\16core.export\1\0\0\1\0\1\15extensions\ball\19core.presenter\vconfig\1\0\0\1\0\1\rzen_mode\rzen-mode\25core.export.markdown\24core.norg.concealer core.integrations.telescope\18core.defaults\1\0\0\nsetup\nneorg\frequire\0", "config", "neorg")
+
 time([[Sequenced loading]], false)
-vim.cmd [[augroup packer_load_aucmds]]
-vim.cmd [[au!]]
-  -- Filetype lazy-loads
-time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType norg ++once lua require("packer.load")({'neorg'}, { ft = "norg" }, _G.packer_plugins)]]
-time([[Defining lazy-load filetype autocommands]], false)
-vim.cmd("augroup END")
-vim.cmd [[augroup filetypedetect]]
-time([[Sourcing ftdetect script at: /home/dinhego/.local/share/nvim/site/pack/packer/opt/neorg/ftdetect/norg.vim]], true)
-vim.cmd [[source /home/dinhego/.local/share/nvim/site/pack/packer/opt/neorg/ftdetect/norg.vim]]
-time([[Sourcing ftdetect script at: /home/dinhego/.local/share/nvim/site/pack/packer/opt/neorg/ftdetect/norg.vim]], false)
-vim.cmd("augroup END")
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

@@ -86,30 +86,40 @@ wk.register({
   },
 }, nopts)
 
+-- NEORG
+wk.register({
+  n = {
+    name = "Neorg",
+    w = {'<cmd>Telescope neorg switch_workspace<cr>'}
+  }
+}, nopts)
+
+-- Projetos
 wk.register({
   p = {
     name = "Projetos",
     r = {'<cmd>lua require"telescope".extensions.projects.projects{}<cr>', "Abre projetos recentes"},
-    s = {'<cmd>Telescope symbols', "Busca de emojis"},
   }
 }, nopts)
 
+-- Buscas
 wk.register({
     s = {
-        name = 'search',
-        F = {'<cmd>Telescope filetypes<cr>', 'Tipos de arquivos'},
+        name = 'Buscar',
         d = {'<cmd>Telescope lsp_document_diagnostics<cr>', 'Diagnósticos de documento'},
         D = {'<cmd>Telescope lsp_workspace_diagnostics<cr>', 'Diagnósticos de ambiente de espaço'},
+        e = {'<cmd>Telescope symbols<cr>', "Busca de emojis"},
+        F = {'<cmd>Telescope filetypes<cr>', 'Tipos de arquivos'},
         f = {'<cmd>Telescope find_files<cr>', 'Achar arquivos'},
         h = {'<cmd>Telescope command_history<cr>', 'Histórico'},
         i = {'<cmd>Telescope media_files<cr>', 'Arquivos de mídia'},
-        m = {'<cmd>Telescope marks<cr>', 'Marcas'},
         M = {'<cmd>Telescope man_pages<cr>', 'Arquivos man'},
+        m = {'<cmd>Telescope marks<cr>', 'Marcas'},
         o = {'<cmd>Telescope vim_options<cr>', 'Opções do vim'},
-        t = {'<cmd>Telescope live_grep<cr>', 'Grep ao vivo'},
         r = {'<cmd>Telescope registers<cr>', 'Registros'},
-        w = {'<cmd>Telescope file_browser<cr>', 'Encontrar arquivo'},
+        t = {'<cmd>Telescope live_grep<cr>', 'Grep ao vivo'},
         u = {'<cmd>Telescope colorscheme<cr>', 'Cores de sistema'},
+        w = {'<cmd>Telescope file_browser<cr>', 'Encontrar arquivo'},
     },
 }, nopts)
 
