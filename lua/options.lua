@@ -35,7 +35,6 @@ local options = {
   laststatus = 3, -- Deixa só uma linha de status
 }
 
-vim.cmd [[au TextYankPost * silent! lua vim.highlight.on_yank()]] -- Pisca quando copia texto
 vim.opt.shortmess:append "c"
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]

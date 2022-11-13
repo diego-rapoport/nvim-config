@@ -63,7 +63,7 @@ wk.register({
     a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Ação de código" },
     d = { "<cmd>Telescope diagnostics bufnr=0 theme=get_ivy<cr>", "Diagnósticos de Buffer" },
     w = { "<cmd>Telescope diagnostics<cr>", "Diagnósticos" },
-    f = { "<cmd>vim.lsp.buf.formatting_sync()<cr>", "Formatar" },
+    f = { "<cmd>lua vim.lsp.buf.format()<cr>", "Formatar arquivo" },
     i = { "<cmd>LspInfo<cr>", "Informações" },
     I = { "<cmd>Mason<cr>", "Mason" },
     j = {

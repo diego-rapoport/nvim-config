@@ -9,7 +9,20 @@ if not snip_status_ok then
 end
 
 -- Carrega snippets do vscode
-require("luasnip.loaders.from_vscode").lazy_load({paths = {"./snippets"}})
+require("luasnip.loaders.from_vscode").lazy_load({ paths = { "./snippets" } })
+require("luasnip.loaders.from_lua").load({ paths = "./luasnips" })
+luasnip.config.set_config({
+  history = true,
+  updateevents = "TextChanged,TextChangedI", -- atualiza enquanto digita
+  enable_autosnippets = true,
+  ext_opts = {
+    [require('luasnip.util.types').choiceNode] = {
+      active = {
+        virt_text = { { "💬" } }
+      }
+    }
+  }
+})
 
 local check_backspace = function()
   local col = vim.fn.col "." - 1

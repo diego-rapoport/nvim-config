@@ -37,7 +37,7 @@ startup.setup {
                 { "  Arquivos Recentes", "Telescope oldfiles", "r" },
                 { "  Encontrar Arquivo", "Telescope file_browser", "a" },
                 { "  Editar Plugins", ":e ~/.config/nvim/lua/plugins.lua", "e"},
-                { "  Horas Trabalhadas Hoje", ":lua vim.notify(Wakatime_trabalhados())", "t"},
+                { "  Horas Trabalhadas Hoje", ":lua WakaTimeToday()", "t"},
                 { "  Tema", "Telescope colorscheme", "c" },
                 { "蘆 Sair", "q!", "q"},
             },
