@@ -33,7 +33,7 @@ startup.setup {
     margin = 10,
     content = {
       { "  Projetos Recentes", "Telescope projects", "P" },
-      { "  Projetos Programação", "Telescope project", "p" },
+      { "  Projetos Programação", "Telescope project", "p" },
       { "ﴬ  Neorg", ":e ~/Documentos/Norgs/index.norg", "n" },
       { "  Encontrar Palavra", "Telescope live_grep", "s" },
       { "  Arquivos Recentes", "Telescope oldfiles", "r" },
