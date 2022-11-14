@@ -137,6 +137,7 @@ packer.startup(function(use)
   -- GIT
   use 'lewis6991/gitsigns.nvim'
   use 'kdheepak/lazygit.nvim'
+  use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 
   -- Modo Zen
   use {
