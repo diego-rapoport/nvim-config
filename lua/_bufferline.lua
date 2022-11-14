@@ -9,5 +9,31 @@ bufferline.setup {
     diagnostics = true,
     separator_style = "slant",
     always_show_bufferline = true,
+  },
+  offsets = {
+    {
+      filetype = 'mind',
+      text = ' Mind',
+      highlight = 'PanelHeading',
+      text_align = 'center',
+    },
+    {
+      filetype = ' DiffviewFiles',
+      text = 'Diff View',
+      highlight = 'PanelHeading',
+      text_align = 'center',
+    },
+    {
+      filetype = 'Outline',
+      text = 'Symbols',
+      highlight = 'PanelHeading',
+      text_align = 'center',
+    },
+    {
+      filetype = 'packer',
+      text = ' Packer',
+      highlight = 'PanelHeading',
+      text_align = 'center',
+    },
   }
 }
