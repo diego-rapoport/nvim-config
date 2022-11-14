@@ -66,8 +66,9 @@ wk.register({
   g = {
     name = "Lazygit",
     g = {"<cmd>LazyGitCurrentFile<cr>", "Abre lazygit no arquivo atual"},
-    c = {"<cmd>LazyGiConfig<cr>", "Abre configs do lazygit"},
+    C = {"<cmd>LazyGiConfig<cr>", "Abre configs do lazygit"},
     d = {'<cmd>DiffviewOpen<cr>', 'Abre git diff'},
+    c = {'<cmd>DiffViewClose<cr>', 'Fecha git diff'},
   },
 }, nopts)
 
