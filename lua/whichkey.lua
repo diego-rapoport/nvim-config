@@ -43,6 +43,16 @@ wk.register({
 
 -- Registros aninhados --
 
+-- Bufferline
+wk.register({
+  b = {
+    name = "Buffer",
+    l = {'<cmd>:BufferLineCloseRight<cr>', 'Fecha todas as abas à direita'},
+    L = {'<cmd>:BufferLineMoveNext<cr>', 'Move buffer à direita'},
+    h = {'<cmd>:BufferLineCloseLeft<cr>', 'Fecha todas as abas à esquerda'},
+    H = {'<cmd>:BufferLineMovePrev<cr>', 'Move buffer à esquerda'},
+  }
+})
 -- Configs
 wk.register({
   C = {
@@ -57,6 +67,7 @@ wk.register({
     name = "Lazygit",
     g = {"<cmd>LazyGitCurrentFile<cr>", "Abre lazygit no arquivo atual"},
     c = {"<cmd>LazyGiConfig<cr>", "Abre configs do lazygit"},
+    d = {'<cmd>DiffviewOpen<cr>', 'Abre git diff'},
   },
 }, nopts)
 
@@ -93,8 +104,9 @@ wk.register({
 -- Mind
 wk.register({
   m = {
-    n = {'<cmd>MindOpenProject<cr>', 'Abrir um novo projeto'},
-    N = {'<cmd>MindOpenSmartProject<cr>', 'Abrir um novo projeto local ou global'},
+    name = "Mind",
+    o = {'<cmd>MindOpenProject<cr>', 'Abrir (novo) projeto'},
+    s = {'<cmd>MindOpenSmartProject<cr>', 'Abrir (novo) projeto local ou global'},
     c = {'<cmd>MindClose<cr>', 'Fechar projeto mind'},
     M = {'<cmd>MindOpenMain<cr>', 'Abrir projeto raiz(main)'},
   }
