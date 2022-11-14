@@ -20,5 +20,11 @@
       " $0",
       "}"
     ]
+  },
+  "Whichkey cmd": {
+    "prefix": "wkcmd",
+    "body": [
+      "{'<cmd>$1<cr>', '$2'},"
+    ]
   }
 }

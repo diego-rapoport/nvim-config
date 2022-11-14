@@ -38,17 +38,20 @@ wk.register({
   r = {"<cmd>RnvimrToggle<cr>", "Abre ranger"},
 }, nopts)
 wk.register({
-  c = {"<cmd>Bdelete!<cr>", "Fecha o buffer"},
+  c = {"<cmd>bdelete!<cr>", "Fecha o buffer"},
 }, nopts)
 
--- Registros aninhados
+-- Registros aninhados --
+
+-- Configs
 wk.register({
   C = {
     name = "Configs",
-    t = {"<cmd>e ~/.config/nvim/lua/_telescope.lua"},
+    m = {"<cmd>Telescope menu configs<cr>", 'Abrir menu de arquivos de configuração'},
   }
 }, nopts)
 
+-- Git lazy
 wk.register({
   g = {
     name = "Lazygit",
@@ -57,6 +60,7 @@ wk.register({
   },
 }, nopts)
 
+-- LSP
 wk.register({
   l = {
     name = "LSP",
@@ -86,6 +90,16 @@ wk.register({
   },
 }, nopts)
 
+-- Mind
+wk.register({
+  m = {
+    n = {'<cmd>MindOpenProject<cr>', 'Abrir um novo projeto'},
+    N = {'<cmd>MindOpenSmartProject<cr>', 'Abrir um novo projeto local ou global'},
+    c = {'<cmd>MindClose<cr>', 'Fechar projeto mind'},
+    M = {'<cmd>MindOpenMain<cr>', 'Abrir projeto raiz(main)'},
+  }
+}, nopts)
+
 -- NEORG
 wk.register({
   n = {
@@ -99,6 +113,17 @@ wk.register({
   p = {
     name = "Projetos",
     r = {'<cmd>lua require"telescope".extensions.projects.projects{}<cr>', "Abre projetos recentes"},
+    p = {'<cmd>Telescope project<cr>', 'Abre todos os projetos da pasta Programação'}
+  }
+}, nopts)
+
+-- Packer
+wk.register({
+  P = {
+    name = 'Packer',
+    s = {'<cmd>PackerSync<cr>', 'Sincronizar plugins'},
+    c = {'<cmd>PackerClean<cr>', 'Limpa pacotes não utilizados'},
+    S = {'<cmd>PackerSnapshot<cr>', 'Salva estado do packer'},
   }
 }, nopts)
 

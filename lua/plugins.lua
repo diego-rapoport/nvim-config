@@ -252,7 +252,7 @@ packer.startup(function(use)
     tag = "v3.*",
     requires = 'nvim-tree/nvim-web-devicons'
   }
-  use 'moll/vim-bbye'
+  --use 'moll/vim-bbye'
 
   -- Ranger
   use 'kevinhwang91/rnvimr'
