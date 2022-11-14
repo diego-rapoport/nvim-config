@@ -33,5 +33,6 @@ require('lspconfig').sumneko_lua.setup{}
 require('lspconfig').marksman.setup{}
 require('lspconfig').pyright.setup{}
 require('lspconfig').rust_analyzer.setup{}
-require('lspconfig').tailwindcss.setup{}
-
+require('lspconfig').tailwindcss.setup{
+  filetypes = {"javascriptreact", "typescriptreact", "css"},
+}
