@@ -58,6 +58,7 @@ keymap(n, "<F5>", ":4ToggleTerm direction=horizontal<cr>", opts)
 
 -- Insert --
 keymap(i, "jk", "<ESC>", opts)
+keymap(i, "<C-q>", "[[<Cmd>wq<CR>]]", opts)
 
 -- Visual --
 keymap(v, "p", '"_dP', opts) -- cola texto em cima da seleção sem mudar o clipboard
