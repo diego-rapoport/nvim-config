@@ -48,6 +48,7 @@ return telescope.setup {
     project = {
       base_dirs = {
         { path = '~/Programação', max_depth = 4 },
+        { path = '~/XDIGITAL', max_depth = 3},
       },
     },
     menu = {
