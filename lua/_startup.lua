@@ -58,7 +58,7 @@ startup.setup({
 		content = {
 			" diego-rapoport",
 			" @ X Digital Brasil",
-			" Fullstack Developer( Angular, Node, MongoDB, Typescript)",
+			" Fullstack Developer( Angular,  Node,  MongoDB,  Typescript)",
 			"",
 			" " .. os.date("%d/%m/%Y"),
 		},
