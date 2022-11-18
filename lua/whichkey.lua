@@ -51,8 +51,10 @@ wk.register({
     L = {'<cmd>:BufferLineMoveNext<cr>', 'Move buffer à direita'},
     h = {'<cmd>:BufferLineCloseLeft<cr>', 'Fecha todas as abas à esquerda'},
     H = {'<cmd>:BufferLineMovePrev<cr>', 'Move buffer à esquerda'},
+    s = {'<cmd>:vsplit<cr>', 'Split vertical'},
+    S = {'<cmd>:split<cr>', 'Split horizontal'},
   }
-})
+}, nopts)
 -- Configs
 wk.register({
   C = {
@@ -68,7 +70,7 @@ wk.register({
     g = {"<cmd>LazyGitCurrentFile<cr>", "Abre lazygit no arquivo atual"},
     C = {"<cmd>LazyGiConfig<cr>", "Abre configs do lazygit"},
     d = {'<cmd>DiffviewOpen<cr>', 'Abre git diff'},
-    c = {'<cmd>DiffViewClose<cr>', 'Fecha git diff'},
+    c = {'<cmd>DiffviewClose<cr>', 'Fecha git diff'},
   },
 }, nopts)
 
@@ -117,7 +119,9 @@ wk.register({
 wk.register({
   n = {
     name = "Neorg",
-    w = {'<cmd>Telescope neorg switch_workspace<cr>'}
+    w = {'<cmd>Telescope neorg switch_workspace<cr>', 'Áreas de trabalho'},
+    l = {'<cmd>Telescope neorg insert_link<cr>', 'Inserir link'},
+    f = {'<cmd>Telescope neorg insert_file_link<cr>', 'Inserir link de arquivo'},
   }
 }, nopts)
 

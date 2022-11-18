@@ -26,6 +26,7 @@ require('lspconfig').diagnosticls.setup{}
 require('lspconfig').dockerls.setup{}
 require('lspconfig').dotls.setup{}
 require('lspconfig').eslint.setup{}
+require('lspconfig').efm.setup{}
 require('lspconfig').html.setup{}
 require('lspconfig').jsonls.setup{}
 require('lspconfig').tsserver.setup{}
@@ -36,3 +37,4 @@ require('lspconfig').rust_analyzer.setup{}
 require('lspconfig').tailwindcss.setup{
   filetypes = {"javascriptreact", "typescriptreact", "css"},
 }
+require("lspconfig").jdtls.setup{}

@@ -1,5 +1,6 @@
-local status_ok, null = pcall(require, "null")
+local status_ok, null = pcall(require, "null-ls")
 if not status_ok then
+  vim.notify('Null não ok!')
  return
 end
 

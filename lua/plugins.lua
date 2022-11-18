@@ -102,7 +102,7 @@ packer.startup(function(use)
       ts_update()
     end,
   }
-  use 'p00f/nvim-ts-rainbow'
+  -- use 'p00f/nvim-ts-rainbow'
   use 'RRethy/nvim-treesitter-endwise'
   use {
     'AckslD/nvim-neoclip.lua',
@@ -135,7 +135,12 @@ packer.startup(function(use)
   use 'rcarriga/nvim-notify'
 
   -- GIT
-  use 'lewis6991/gitsigns.nvim'
+  use {
+    'lewis6991/gitsigns.nvim',
+    config = function()
+      require('gitsigns').setup()
+    end
+  }
   use 'kdheepak/lazygit.nvim'
   use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 
@@ -213,10 +218,10 @@ packer.startup(function(use)
 
   -- Icons
   use 'kyazdani42/nvim-web-devicons'
-  use {
+  --[[ use {
     'yamatsum/nvim-nonicons',
     requires = 'kyazdani42/nvim-web-devicons'
-  }
+  } ]]
 
   -- Project Mindmap
   use {
@@ -264,6 +269,19 @@ packer.startup(function(use)
     tag = "*",
     config = function()
       require('toggleterm').setup()
+    end
+  }
+
+  use {
+    'gnikdroy/projections.nvim',
+    config = function()
+      local programacao = '~/Programação'
+      require 'projections'.setup({
+        workspaces = {
+          { programacao .. '/Angular', { 'angular.json', 'tsconfig.json' } },
+          { programacao, {} },
+        }
+      })
     end
   }
 

@@ -10,7 +10,7 @@ end
 
 -- Carrega snippets do vscode
 require("luasnip.loaders.from_vscode").lazy_load({ paths = { "./snippets" } })
-require("luasnip.loaders.from_lua").load({ paths = "./luasnips" })
+require("luasnip.loaders.from_lua").lazy_load({ paths = "./luasnips" })
 luasnip.config.set_config({
   history = true,
   updateevents = "TextChanged,TextChangedI", -- atualiza enquanto digita
@@ -18,16 +18,16 @@ luasnip.config.set_config({
   ext_opts = {
     [require('luasnip.util.types').choiceNode] = {
       active = {
-        virt_text = { { "💬" } }
+        virt_text = { { "💬", "Gruvboxorange" } }
       }
     }
   }
 })
 
-local check_backspace = function()
+--[[ local check_backspace = function()
   local col = vim.fn.col "." - 1
   return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
-end
+end ]]
 
 local lsp_symbols = {
   Text = "   (Text) ",
@@ -69,7 +69,7 @@ cmp.setup {
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.abort(),
-    ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    ['<CR>'] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     ["<Tab>"] = cmp.mapping(function(fallback)
       if luasnip.expand_or_locally_jumpable() then
         luasnip.expand_or_jump()
@@ -100,7 +100,6 @@ cmp.setup {
     { name = 'luasnip' },
     { name = 'npm' },
   },
-
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)

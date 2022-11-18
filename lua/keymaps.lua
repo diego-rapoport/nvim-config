@@ -22,8 +22,10 @@ keymap(n, "<C-k>", "<C-w><C-k>", opts)
 keymap(n, "<C-l>", "<C-w><C-l>", opts)
 
 -- Navegação de buffers --
-keymap(n, "<S-l>", ":bnext<cr>", opts)
-keymap(n, "<S-h>", ":bprevious<cr>", opts)
+--[[ keymap(n, "<S-l>", ":bnext<cr>", opts)
+keymap(n, "<S-h>", ":bprevious<cr>", opts) ]]
+keymap(n, "<S-l>", ":BufferLineCycleNext<cr>", opts)
+keymap(n, "<S-h>", ":BufferLineCyclePrev<cr>", opts)
 
 -- Redimensionamento --
 keymap(n, "<M-j>", ":resize +2<cr>", opts)
