@@ -274,20 +274,6 @@ packer.startup(function(use)
 		end,
 	})
 
-	-- Projects + Sessions
-	use({
-		"gnikdroy/projections.nvim",
-		config = function()
-			local programacao = "~/Programação"
-			require("projections").setup({
-				workspaces = {
-					{ programacao .. "/Angular", { "angular.json", "tsconfig.json" } },
-					{ programacao, {} },
-				},
-			})
-		end,
-	})
-
 	-- WakaTime time tracker
 	use("wakatime/vim-wakatime")
 
