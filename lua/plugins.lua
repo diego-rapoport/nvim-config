@@ -127,7 +127,9 @@ packer.startup(function(use)
 	use({
 		"ahmedkhalf/project.nvim",
 		config = function()
-			require("project_nvim").setup({})
+			require("project_nvim").setup({
+				scope_chdir = "tab",
+			})
 		end,
 	})
 
@@ -291,6 +293,15 @@ packer.startup(function(use)
 
 	-- Java
 	use({ "mfussenegger/nvim-jdtls" })
+
+	-- FSRead (melhora leitura)
+	use("nullchilly/fsread.nvim")
+
+	-- ChatGPT
+	use({
+		"terror/chatgpt.nvim",
+		run = "pip3 install -r requirements.txt",
+	})
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
