@@ -41,3 +41,18 @@ vim.api.nvim_create_autocmd({ "VimEnter" }, {
 	end,
 	desc = "Restore last session automatically",
 })
+
+-- Create commands
+vim.api.nvim_create_user_command("StoreProjectSession", function()
+	Session.store(vim.loop.cwd())
+end, {})
+
+vim.api.nvim_create_user_command("RestoreProjectSession", function()
+	Session.restore(vim.loop.cwd())
+end, {})
+
+local Workspace = require("projections.workspace")
+-- Add workspace command
+vim.api.nvim_create_user_command("AddWorkspace", function()
+	Workspace.add(vim.loop.cwd())
+end, {})
