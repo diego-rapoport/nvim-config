@@ -216,6 +216,17 @@ packer.startup(function(use)
 		"folke/which-key.nvim",
 		config = function()
 			require("whichkey")
+			require("which-key").setup({
+				window = {
+					border = "shadow",
+					winblend = 1,
+				},
+				layout = {
+					heigh = { min = 6, max = 12 },
+					width = { min = 20, max = 100 },
+					align = "center",
+				},
+			})
 		end,
 	})
 
