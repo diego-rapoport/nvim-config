@@ -37,7 +37,6 @@ startup.setup({
 			{ "ﴬ  Neorg", ":e ~/Documentos/Norgs/index.norg", "n" },
 			{ "  Encontrar Palavra", "Telescope live_grep", "s" },
 			{ "  Arquivos Recentes", "Telescope oldfiles", "r" },
-			{ "  Encontrar Arquivo", "Telescope file_browser", "a" },
 			{ "  Tema", "Telescope colorscheme", "c" },
 			{ "  Horas Trabalhadas Hoje", ":WakaTimeToday", "t" },
 			{ "  Editar Configs", "Telescope menu configs", "C" },
