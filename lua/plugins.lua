@@ -46,6 +46,9 @@ packer.startup(function(use)
     requires = {
       "nvim-tree/nvim-web-devicons",
     },
+    config = {
+      require("nvim-tree").setup(),
+    },
   })
 
   -- popup API
