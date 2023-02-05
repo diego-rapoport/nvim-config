@@ -35,6 +35,6 @@ require("lspconfig").marksman.setup({})
 require("lspconfig").pyright.setup({})
 require("lspconfig").rust_analyzer.setup({})
 require("lspconfig").tailwindcss.setup({
-  filetypes = { "javascriptreact", "typescriptreact", "css" },
+  filetypes = { "javascriptreact", "typescriptreact", "css", "html" },
 })
 require("lspconfig").jdtls.setup({})

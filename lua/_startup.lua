@@ -56,8 +56,8 @@ startup.setup({
 		default_color = "",
 		content = {
 			" diego-rapoport",
-			" @ X Digital Brasil",
-			" Fullstack Developer( Angular,  Node,  MongoDB,  Typescript)",
+			" @ Risoluto",
+			" Frontend Developer( Angular,  Typescript)",
 			"",
 			" " .. os.date("%d/%m/%Y"),
 		},

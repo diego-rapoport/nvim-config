@@ -49,7 +49,7 @@ wk.register({
     name = "Arquivos",
     a = { "<cmd>NvimTreeToggle<cr>", "Abre a árvore de arquivos" },
   },
-})
+}, nopts)
 
 -- Bufferline
 wk.register({

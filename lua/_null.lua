@@ -1,6 +1,6 @@
 local status_ok, null = pcall(require, "null-ls")
 if not status_ok then
- return
+  return
 end
 
 local formatting = null.builtins.formatting
@@ -8,11 +8,11 @@ local diagnostics = null.builtins.diagnostics
 local completion = null.builtins.completion
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-null.setup {
+null.setup({
   sources = {
     formatting.stylua,
-    formatting.prettier.with({extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote"}}),
-    diagnostics.eslint,
+    formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
+    -- diagnostics.eslint,
     diagnostics.tsc,
     completion.spell,
   },
@@ -24,9 +24,9 @@ null.setup {
         buffer = bufnr,
         callback = function()
           -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
-          vim.lsp.buf.format({bufnr=bufnr})
+          vim.lsp.buf.format({ bufnr = bufnr })
         end,
       })
     end
   end,
-}
+})

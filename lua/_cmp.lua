@@ -1,27 +1,28 @@
 local cmp_status_ok, cmp = pcall(require, "cmp")
 if not cmp_status_ok then
-  return
+	return
 end
 
 local snip_status_ok, luasnip = pcall(require, "luasnip")
 if not snip_status_ok then
-  return
+	return
 end
 
 -- Carrega snippets do vscode
+require("luasnip.loaders.from_vscode").lazy_load()
 require("luasnip.loaders.from_vscode").lazy_load({ paths = { "./snippets" } })
 require("luasnip.loaders.from_lua").lazy_load({ paths = "./luasnips" })
 luasnip.config.set_config({
-  history = true,
-  updateevents = "TextChanged,TextChangedI", -- atualiza enquanto digita
-  enable_autosnippets = true,
-  ext_opts = {
-    [require('luasnip.util.types').choiceNode] = {
-      active = {
-        virt_text = { { "💬", "Gruvboxorange" } }
-      }
-    }
-  }
+	history = true,
+	updateevents = "TextChanged,TextChangedI", -- atualiza enquanto digita
+	enable_autosnippets = true,
+	ext_opts = {
+		[require("luasnip.util.types").choiceNode] = {
+			active = {
+				virt_text = { { "💬", "Gruvboxorange" } },
+			},
+		},
+	},
 })
 
 --[[ local check_backspace = function()
@@ -30,91 +31,91 @@ luasnip.config.set_config({
 end ]]
 
 local lsp_symbols = {
-  Text = "   (Text) ",
-  Method = "   (Method)",
-  Function = "   (Function)",
-  Constructor = "   (Constructor)",
-  Field = " ﴲ  (Field)",
-  Variable = "[] (Variable)",
-  Class = "   (Class)",
-  Interface = " ﰮ  (Interface)",
-  Module = "   (Module)",
-  Property = " 襁 (Property)",
-  Unit = "   (Unit)",
-  Value = "   (Value)",
-  Enum = " 練 (Enum)",
-  Keyword = "   (Keyword)",
-  Snippet = "   (Snippet)",
-  Color = "   (Color)",
-  File = "   (File)",
-  Reference = "   (Reference)",
-  Folder = "   (Folder)",
-  EnumMember = "   (EnumMember)",
-  Constant = " ﲀ  (Constant)",
-  Struct = " ﳤ  (Struct)",
-  Event = "   (Event)",
-  Operator = "   (Operator)",
-  TypeParameter = "   (TypeParameter)",
+	Text = "   (Text) ",
+	Method = "   (Method)",
+	Function = "   (Function)",
+	Constructor = "   (Constructor)",
+	Field = " ﴲ  (Field)",
+	Variable = "[] (Variable)",
+	Class = "   (Class)",
+	Interface = " ﰮ  (Interface)",
+	Module = "   (Module)",
+	Property = " 襁 (Property)",
+	Unit = "   (Unit)",
+	Value = "   (Value)",
+	Enum = " 練 (Enum)",
+	Keyword = "   (Keyword)",
+	Snippet = "   (Snippet)",
+	Color = "   (Color)",
+	File = "   (File)",
+	Reference = "   (Reference)",
+	Folder = "   (Folder)",
+	EnumMember = "   (EnumMember)",
+	Constant = " ﲀ  (Constant)",
+	Struct = " ﳤ  (Struct)",
+	Event = "   (Event)",
+	Operator = "   (Operator)",
+	TypeParameter = "   (TypeParameter)",
 }
 
-cmp.setup {
-  window = {
-    completion = cmp.config.window.bordered(),
-    documentation = cmp.config.window.bordered(),
-  },
-  mapping = cmp.mapping.preset.insert({
-    ["<C-k>"] = cmp.mapping.select_prev_item(),
-    ["<C-j>"] = cmp.mapping.select_next_item(),
-    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-    ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-Space>'] = cmp.mapping.complete(),
-    ['<C-e>'] = cmp.mapping.abort(),
-    ['<CR>'] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-    ["<Tab>"] = cmp.mapping(function(fallback)
-      if luasnip.expand_or_locally_jumpable() then
-        luasnip.expand_or_jump()
-      else
-        fallback()
-      end
-    end, { "i", "s" }),
-  }),
-  formatting = {
-    fields = { "kind", "abbr", "menu" },
-    format = function(entry, item)
-      item.kind = lsp_symbols[item.kind]
-      item.menu = ({
-        buffer = "[Buffer]",
-        nvim_lsp = "[LSP]",
-        luasnip = "[Snippet]",
-        neorg = "[Neorg]",
-      })[entry.source.name]
+cmp.setup({
+	window = {
+		completion = cmp.config.window.bordered(),
+		documentation = cmp.config.window.bordered(),
+	},
+	mapping = cmp.mapping.preset.insert({
+		["<C-k>"] = cmp.mapping.select_prev_item(),
+		["<C-j>"] = cmp.mapping.select_next_item(),
+		["<C-b>"] = cmp.mapping.scroll_docs(-4),
+		["<C-f>"] = cmp.mapping.scroll_docs(4),
+		["<C-Space>"] = cmp.mapping.complete(),
+		["<C-e>"] = cmp.mapping.abort(),
+		["<CR>"] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+		["<Tab>"] = cmp.mapping(function(fallback)
+			if luasnip.expand_or_locally_jumpable() then
+				luasnip.expand_or_jump()
+			else
+				fallback()
+			end
+		end, { "i", "s" }),
+	}),
+	formatting = {
+		fields = { "kind", "abbr", "menu" },
+		format = function(entry, item)
+			item.kind = lsp_symbols[item.kind]
+			item.menu = ({
+				buffer = "[Buffer]",
+				nvim_lsp = "[LSP]",
+				luasnip = "[Snippet]",
+				neorg = "[Neorg]",
+			})[entry.source.name]
 
-      return item
-    end,
-    -- format = function(entry, vim_item)
-  },
-  sources = { -- A ordem aqui importa
-    { name = 'nvim_lsp' },
-    { name = 'buffer' },
-    { name = 'path' },
-    { name = 'luasnip' },
-    { name = 'npm' },
-  },
-  snippet = {
-    expand = function(args)
-      luasnip.lsp_expand(args.body)
-    end,
-  },
-  experimental = {
-    native_menu = false,
-    ghost_text = true,
-  },
-}
+			return item
+		end,
+		-- format = function(entry, vim_item)
+	},
+	sources = { -- A ordem aqui importa
+		{ name = "nvim_lsp" },
+		{ name = "buffer" },
+		{ name = "path" },
+		{ name = "luasnip" },
+		{ name = "npm" },
+	},
+	snippet = {
+		expand = function(args)
+			luasnip.lsp_expand(args.body)
+		end,
+	},
+	experimental = {
+		native_menu = false,
+		ghost_text = true,
+	},
+})
 
-cmp.setup.filetype('gitcommit', {
-  sources = cmp.config.sources({
-    { name = 'cmp_git' },
-  }, {
-    { name = 'buffer' },
-  })
+cmp.setup.filetype("gitcommit", {
+	sources = cmp.config.sources({
+		{ name = "cmp_git" },
+	}, {
+		{ name = "buffer" },
+	}),
 })
